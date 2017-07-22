@@ -1,18 +1,15 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Location Tracker
+      <!-- <span class="pull-right" (click)="start()"></span> -->
+      <ion-icon name="locate" (click)="start()" style="float: right; cursor: pointer"></ion-icon>
+    </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+ 
+<ion-content>
+  Current Latitude: <input readonly id="current_latitude" value="{{locationTracker.lat}}">
+  Current Longitude: <input readonly value="{{locationTracker.lng}}">
+      <!-- <button ion-button full primary (click)="start()" id="track_button">Start Tracking</button>     -->
 </ion-content>
