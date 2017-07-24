@@ -1,8 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BackgroundGeolocation, BackgroundGeolocationConfig } from '@ionic-native/background-geolocation';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+;
 import 'rxjs/add/operator/filter';
-import $ from "jquery";
+// import $ from "jquery";
 
  
 @Injectable()
@@ -29,6 +30,7 @@ export class LocationTracker {
     interval: 2000 
   };
  
+
   this.backgroundGeolocation.configure(config).subscribe((location) => {
  
     console.log('BackgroundGeolocation:  ' + location.latitude + ',' + location.longitude);
@@ -38,6 +40,11 @@ export class LocationTracker {
       this.lat = location.latitude;
       this.lng = location.longitude;
     });
+
+    
+    // if (this.lat < 35 && this.lat < 30) {
+      // alert('You found a playlist');
+    // }
  
   }, (err) => {
  
@@ -62,8 +69,21 @@ this.watch = this.geolocation.watchPosition(options).filter((p: any) => p.code =
   this.zone.run(() => {
     this.lat = position.coords.latitude;
     this.lng = position.coords.longitude;
+    // if (this.lat < 35 && this.lat > 30 && this.lng < -84.3675 && this.lng > -84.4050) {
+    //   alert('You are at TSL');
+    // }
+    if (this.lat < 35 && this.lat > 30 && this.lng < -84.3400 && this.lng > -84.3600) {
+      alert('You found Cody');
+    }
+    if (this.lat < 35 && this.lat > 30 && this.lng < -84.3750 && this.lng > -84.3900) {
+      alert('You found Avery');
+    }
+    if (this.lat < 35 && this.lat > 30 && this.lng < -84.1500 && this.lng > -84.3000) {
+      alert("You found Avery's parents");
+    }
   });
+  
 });
- 
+
   }
 }

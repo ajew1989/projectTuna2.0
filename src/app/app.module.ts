@@ -12,7 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { LocationTracker } from '../providers/location-tracker/location-tracker';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { Geofence } from '@ionic-native/geofence';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 const cloudSettings: CloudSettings = {
@@ -42,8 +42,11 @@ const cloudSettings: CloudSettings = {
     Geolocation,
     StatusBar,
     SplashScreen,
+    Geofence,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
+
+  
 })
 export class AppModule {}
 
